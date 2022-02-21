@@ -14,8 +14,6 @@
       "contextMenus",
       "tabs",
       "activeTab",
-      "scripting",
-      "declarativeContent",
       "storage"
     ],
 
