@@ -9,7 +9,7 @@ I want to translate the highlighted text but the current "Right click on highlig
 I would like to add "Translate w/Revision" function to the context menu and so I write this simple extension.
 
 ## Install
-1. You can download from [google web store](https://chrome.google.com/webstore/category/extensions).
+1. You can download from [google web store](https://chrome.google.com/webstore/detail/vocabulary-revision-lite/llcbnmbbomnpbhcapnlgcelpbammmjmd).
 2. You can also [install from source](manual/installation/GUIDE.md).
 
 ## How to use
