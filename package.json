@@ -1,6 +1,6 @@
 {
   "name": "vocabulary-revision-lite",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Store the words with urls for your further revision",
   "main": "background.js",
   "scripts": {
