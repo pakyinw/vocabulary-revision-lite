@@ -3,7 +3,7 @@
 ## Install from source
 1. Clone or download this repository
 ```
-git clone https://www.github.com/pakyinwww/vocabulary-revision-lite.git
+git clone https://www.github.com/pakyinw/vocabulary-revision-lite.git
 ```
 
 2. Build from the source

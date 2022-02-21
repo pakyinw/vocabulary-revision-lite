@@ -41,7 +41,7 @@ I would like to add "Translate w/Revision" function to the context menu and so I
 
 ## Feedback
 I would be grateful for any feedback.
-1. email [pakyinwww@gmail.com](mailto:pakyinwww@gmail.com)
+1. email [pakyinw@hotmail.com](mailto:pakyinw@hotmail.com)
 2. create an issue
 3. create pull request
  
