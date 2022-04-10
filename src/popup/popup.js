@@ -1,4 +1,4 @@
-import { getConfig, getVocabs, saveConfig, saveVocab, deleteVocab } from './js/common.js'
+import { getConfig, getVocabs, saveConfig, saveVocab, deleteVocab } from '../lib/common.js'
 
 const refreshConfig = async () => {
   const config = await getConfig()
