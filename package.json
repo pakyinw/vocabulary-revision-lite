@@ -4,11 +4,10 @@
   "description": "Store the words with urls for your further revision",
   "main": "background.js",
   "scripts": {
-    "lint": "eslint **/*.js **/*.html",
-    "lint-fix": "eslint --fix **/*.js **/*.html",
+    "lint": "tslint **/*.ts",
+    "lint-fix": "tslint --fix **/*.ts **/*.html",
     "clean": "del-cli --force ./build",
-    "copy": "copyfiles manifest.json *.css *.html *.js *.png ./js/* ./build",
-    "build": "npm run lint-fix && npm run clean && npm run copy",
+    "build": "npm run clean && webpack-cli build",
     "test": "echo \"To be developed\" && exit 1"
   },
   "repository": {
@@ -22,12 +21,15 @@
   },
   "homepage": "https://github.com/pakyinw/vocabulary-revision-lite#readme",
   "devDependencies": {
-    "copyfiles": "^2.4.1",
-    "eslint": "^7.32.0",
-    "eslint-config-standard": "^16.0.3",
-    "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.2.0",
-    "del-cli": "^4.0.1"
+    "@types/chrome": "^0.0.180",
+    "copy-webpack-plugin": "^10.2.4",
+    "del-cli": "^4.0.1",
+    "ts-loader": "^9.2.8",
+    "typescript": "^4.6.3",
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2"
+  },
+  "dependencies": {
+    "tslint": "^6.1.3"
   }
 }
