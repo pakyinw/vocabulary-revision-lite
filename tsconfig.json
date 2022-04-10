@@ -9,5 +9,7 @@
         "baseUrl": "src",
         "allowJs": true,
         "allowSyntheticDefaultImports": true,
+        "noUnusedLocals" : true,
+        "noUnusedParameters" : true, 
     },
 }

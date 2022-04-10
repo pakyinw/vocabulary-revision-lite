@@ -1,7 +1,7 @@
-import { createMenu, addMenuEventListeners } from './components/menu'
+import { createMenu, addMenuEventListeners } from './components/menu';
 
 chrome.runtime.onInstalled.addListener((_reason) => {
-  createMenu()
-})
+  createMenu();
+});
 
-addMenuEventListeners()
+addMenuEventListeners();
