@@ -1,4 +1,4 @@
-import { createMenu, addMenuEventListeners } from './components/menu.ts'
+import { createMenu, addMenuEventListeners } from './components/menu'
 
 chrome.runtime.onInstalled.addListener((_reason) => {
   createMenu()

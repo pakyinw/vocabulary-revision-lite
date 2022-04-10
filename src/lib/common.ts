@@ -1,6 +1,31 @@
 const defaultFrom = 'en'
 const defaultTo = 'zh-TW'
 
+export const getTranslateFromTo = () => {
+  const from = document.getElementById('from')
+  const to = document.getElementById('to')
+
+  if (! (from instanceof HTMLSelectElement)) {
+    throw new Error("Unexpected result from HTMLSelectElement")
+  }
+
+  if (! (to instanceof HTMLSelectElement)) {
+    throw new Error("Unexpected result from HTMLSelectElement")
+  }
+
+  return {from, to} 
+}
+
+export const getImportFile = () => {
+  const file = document.getElementById('selectedFile')
+
+  if (! (file instanceof HTMLInputElement)) {
+    throw new Error("Unexpected result from HTMLSelectElement")
+  }
+
+  return file;
+}
+
 export const getConfig = async () => {
   // 1. retrieve config if any
   const config = await retrieve('config')
@@ -24,7 +49,7 @@ export const saveConfig = async (key, value) => {
     all.config = {}
   }
   all.config[key] = value
-  await new Promise(resolve => chrome.storage.local.set(all, () => {
+  await new Promise<void>(resolve => chrome.storage.local.set(all, () => {
     resolve()
   }))
 }
@@ -36,7 +61,7 @@ export const saveVocab = async (id, vocab, from, to, url) => {
   }
   const timestamp = id || Date.now()
   all.vocabs[timestamp] = { vocab, from, to, url: url.indexOf('chrome://') > -1 ? null : url }
-  await new Promise(resolve => chrome.storage.local.set(all, () => {
+  await new Promise<void>(resolve => chrome.storage.local.set(all, () => {
     resolve()
   }))
 }
@@ -47,7 +72,7 @@ export const deleteVocab = async (id) => {
     return
   }
   delete all.vocabs[id]
-  await new Promise(resolve => chrome.storage.local.set(all, () => {
+  await new Promise<void>(resolve => chrome.storage.local.set(all, () => {
     resolve()
   }))
 }

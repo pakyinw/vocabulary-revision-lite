@@ -1,9 +1,11 @@
-import { getConfig, getVocabs, saveConfig, saveVocab, deleteVocab } from '../lib/common.js'
+import { getImportFile, getTranslateFromTo, getConfig, getVocabs, saveConfig, saveVocab, deleteVocab } from './lib/common'
 
 const refreshConfig = async () => {
   const config = await getConfig()
-  document.getElementById('from').value = config.from
-  document.getElementById('to').value = config.to
+
+  const {from , to} = getTranslateFromTo();
+  from.value = config.from
+  to.value = config.to
 }
 
 const createVocabRow = async (date, text, url) => {
@@ -64,7 +66,12 @@ const importCSV = () => {
 const readFile = async () => {
   const reader = new FileReader()
   reader.onload = async () => {
-    const lines = reader.result.split('\n')
+    const result = reader.result
+    // Type guard
+    if (typeof result !== 'string') {
+      throw new Error("Unexpected result from FileReader")
+    }
+    const lines = result.split('\n')
     while (typeof lines[0] !== 'undefined') {
       const line = lines.shift()
       const split = line.split(',')
@@ -82,13 +89,14 @@ const readFile = async () => {
     }
     await refreshVocabTable()
   }
-  reader.readAsText(document.getElementById('selectedFile').files[0], 'ISO-8859-1')
+  reader.readAsText(getImportFile().files[0], 'ISO-8859-1')
 }
+
+
 
 const addListeners = () => {
   // add listener for the select options
-  const from = document.getElementById('from')
-  const to = document.getElementById('to')
+  const {from, to} = getTranslateFromTo();
 
   from.addEventListener('change', () => {
     saveConfig('from', from.value)

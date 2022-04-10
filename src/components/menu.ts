@@ -1,4 +1,4 @@
-import { getConfig, saveVocab } from '../lib/common.ts'
+import { getConfig, saveVocab } from '../lib/common'
 
 export const createMenu = () => {
   chrome.contextMenus.create({
