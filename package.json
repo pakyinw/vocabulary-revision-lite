@@ -5,10 +5,10 @@
   "main": "background.js",
   "scripts": {
     "lint": "tslint **/*.ts",
-    "lint-fix": "tslint --fix **/*.ts **/*.html",
+    "lint-fix": "tslint --fix **/*.ts",
     "clean": "del-cli --force ./build",
     "build": "npm run clean && webpack-cli build",
-    "test": "echo \"To be developed\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
