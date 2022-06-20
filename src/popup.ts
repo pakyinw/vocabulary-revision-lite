@@ -8,12 +8,14 @@ const refreshConfig = async () => {
   to.value = config.to;
 };
 
-const createVocabRow = async (date, text, url) => {
+const createVocabRow = async (date, text, url, from, to) => {
+  const meaningUrl = `https://translate.google.com/?sl=${from}&tl=${to}&text=${text}&op=translate`
   document.getElementById('vocabs').innerHTML +=
         "<div class='row'>" +
         "<div class='cell'>" + new Date(+date).toLocaleDateString() + '</div>' +
         "<div class='cell'>" + text + '</div>' +
         (url ? "<div class='cell'><a target='_blank' rel='noopener noreferrer' href='" + url + "'>here</a></div>" : '<div></div>') +
+        "<div class='cell'><a target='_blank' rel='noopener noreferrer' href='" + meaningUrl + "'>meaning</a></div>" +
         "<div class='cell'><a target='_blank' rel='noopener noreferrer' id='delete" + date + "'>delete</a></div>" +
         '</div>';
 };
@@ -30,7 +32,7 @@ const refreshVocabTable = async () => {
   document.getElementById('vocabs').innerHTML = '';
   if (vocabs && Object.keys(vocabs).length > 0) {
     Object.keys(vocabs).map(key =>
-      createVocabRow(key, vocabs[key].vocab, vocabs[key].url)
+      createVocabRow(key, vocabs[key].vocab, vocabs[key].url, vocabs[key].from, vocabs[key].to)
     );
     Object.keys(vocabs).map(key =>
       createVocabRowEventListener(key)
