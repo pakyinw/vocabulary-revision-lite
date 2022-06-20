@@ -12,4 +12,7 @@
         "noUnusedLocals" : true,
         "noUnusedParameters" : true, 
     },
+    "exclude": [
+        "./src/__tests__"
+    ]
 }

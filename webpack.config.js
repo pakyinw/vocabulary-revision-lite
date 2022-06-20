@@ -5,7 +5,7 @@ module.exports = {
     mode: 'production',
     entry:{
         background: __dirname + '/src/background.ts',
-        popup: __dirname + '/src/popup.ts',
+        script: __dirname + '/src/script.ts',
     },    
     resolve: {
         extensions: [".ts"]

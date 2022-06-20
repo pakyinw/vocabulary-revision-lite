@@ -5,10 +5,11 @@
   "main": "background.js",
   "scripts": {
     "lint": "tslint **/*.ts",
-    "lint-fix": "tslint --fix **/*.ts **/*.html",
+    "lint-fix": "tslint --fix **/*.ts",
     "clean": "del-cli --force ./build",
     "build": "npm run clean && webpack-cli build",
-    "test": "echo \"To be developed\" && exit 1"
+    "test": "jest",
+    "test-coverage": "jest --collectCoverage"
   },
   "repository": {
     "type": "git",
@@ -22,8 +23,12 @@
   "homepage": "https://github.com/pakyinw/vocabulary-revision-lite#readme",
   "devDependencies": {
     "@types/chrome": "^0.0.180",
+    "@types/jest": "^27.5.1",
     "copy-webpack-plugin": "^10.2.4",
     "del-cli": "^4.0.1",
+    "jest": "^26.1.0",
+    "jest-chrome": "^0.7.2",
+    "ts-jest": "^26.0.3",
     "ts-loader": "^9.2.8",
     "typescript": "^4.6.3",
     "webpack": "^5.72.0",
